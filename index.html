@@ -18,45 +18,44 @@
     overflow-x: hidden;
   }
 
-  /* PANTALLA DE INICIO */
+  /* PANTALLA DE INICIO (PORTADA) */
   #introScreen {
     position: fixed;
     inset: 0;
     width: 100%;
     min-height: 100%;
+    /* Se usa "center" para que el fondo no se deforme */
     background: url('portada.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 80px;
     z-index: 9999;
     transition: opacity 0.8s ease;
   }
 
-  #introScreen h1 {
-    color: black;
-    font-size: 28px;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-    text-align: center;
-  }
-
+  /* BOTÓN INGRESAR FLOTANTE */
+  /* Lo ubicamos con porcentajes para que siempre esté debajo de los nombres */
   #ingresarBtn {
-    padding: 14px 32px;
+    position: absolute;
+    top: 55%; /* Cambia este número para subir o bajar el botón en la portada */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 35px;
     background: #d8a1b4;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 2px;
     border-radius: 50px;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     animation: pulse 2s infinite ease-in-out;
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-    100% { transform: scale(1); }
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.06); }
+    100% { transform: translateX(-50%) scale(1); }
   }
 
   /* CONTENIDO PRINCIPAL */
@@ -79,7 +78,7 @@
     position: absolute;
     transform: translateX(-50%);
     cursor: pointer;
-    background-color: rgba(transparent); /* CAMBIA ESTO A transparent CUANDO TERMINES */
+    background-color: rgba(255, 0, 0, 0.4); /* CAMBIA ESTO A transparent CUANDO ESTÉN LISTOS */
     border-radius: 8px;
     z-index: 10;
   }
@@ -137,9 +136,9 @@
 
 <body>
 
-<!-- PANTALLA DE INICIO -->
+<!-- PANTALLA DE INICIO (PORTADA) -->
 <div id="introScreen">
-  <h1>INVITACIÓN</h1>
+  <!-- Eliminé el h1 "INVITACIÓN" -->
   <button id="ingresarBtn">INGRESAR</button>
 </div>
 
@@ -147,18 +146,19 @@
 <div class="container" id="content" style="display:none;">
   <img src="boda.png" alt="Invitación Romer y Olimpia">
   
-  <!-- BOTONES -->
+  <!-- BOTONES DE NAVEGACIÓN -->
+  <!-- Modifiqué los porcentajes para subirlos. Si ves la caja roja, ajusta el 'top'. -->
   
   <!-- 1. Ceremonia Religiosa -->
-  <div class="button" style="top:53.5%; left:50%; width:45%; height:1.8%;" 
+  <div class="button" style="top:52.5%; left:50%; width:45%; height:1.8%;" 
        onclick="window.open('https://maps.app.goo.gl/nqKPxbnzh6HYbzx87?g_st=ac')"></div>
 
   <!-- 2. Recepción Social -->
-  <div class="button" style="top:59.5%; left:50%; width:45%; height:1.8%;" 
+  <div class="button" style="top:58.2%; left:50%; width:45%; height:1.8%;" 
        onclick="window.open('https://maps.app.goo.gl/DuaEr2rcxSi4ebDC6?g_st=ac')"></div>
 
   <!-- 3. Comparte tus fotos -->
-  <div class="button" style="top:88.2%; left:50%; width:55%; height:1.8%;" 
+  <div class="button" style="top:86.5%; left:50%; width:55%; height:1.8%;" 
        onclick="window.open('https://drive.google.com/drive/folders/1gJgvDXrxrMIhmsh2E-6GglrGDdgDoGdH?usp=sharing')"></div>
 </div>
 
